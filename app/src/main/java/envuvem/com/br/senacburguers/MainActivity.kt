@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import envuvem.com.br.senacburguers.ui.theme.Purple500
 import envuvem.com.br.senacburguers.ui.theme.SenacBurguersTheme
@@ -55,9 +56,12 @@ fun Greeting(name: String) {
 }
 @Composable
 fun carregarimagens() : Painter{
-        val ImagensPainters = mutableListOf(rememberAsyncImagePainter("https://source.unsplash.com/random/200x200"),
-            rememberAsyncImagePainter("https://source.unsplash.com/random/300x300"),
-                rememberAsyncImagePainter("https://source.unsplash.com/random/400x400"))
+                    val ImagensPainters = mutableListOf(rememberAsyncImagePainter(
+                        "https://api.lorem.space/image/face?w=400&amp;amp;amp;amp;h=400"),
+            rememberAsyncImagePainter(
+                "https://api.lorem.space/image/face?w=300&amp;amp;amp;amp;h=300"),
+                rememberAsyncImagePainter(
+                    "https://api.lorem.space/image/face?w=200&amp;amp;amp;amp;h=200"))
         ImagensPainters.shuffle()
         val sorteio = (0..2).random()
         return ImagensPainters[sorteio]
@@ -77,7 +81,7 @@ fun ProductItem() {
                 val imagesize = 100.dp
                 Box(modifier = Modifier
                     .height(imagesize)
-                    .width(imagesize*2)
+                    .width(imagesize * 2)
                     .background(brush = Brush.horizontalGradient(colors = listOf(Purple500,
                         Teal200)))
                 ) {
