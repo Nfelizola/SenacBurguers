@@ -12,8 +12,8 @@ evoluindo para :
 
 
 
-![SenacBurguers – themes.xml [SenacBurguers.app.main] 15_11_2022 21_25_44.png]
+![screen1.png]
 
-![Screenshot 15_11_2022 21_33_34.png]
+![screen2.png]
 
 
