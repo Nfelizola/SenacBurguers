@@ -16,33 +16,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import envuvem.com.br.senacburguers.ui.theme.Purple500
 import envuvem.com.br.senacburguers.ui.theme.SenacBurguersTheme
 import envuvem.com.br.senacburguers.ui.theme.Teal200
-import java.lang.Math.random
-import java.util.*
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
-    
-           super.onCreate(savedInstanceState)
 
+           super.onCreate(savedInstanceState)
         setContent {
             SenacBurguersTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.widthIn(200.dp),
+                val maximo = 800.dp
+                Surface(modifier =  Modifier.width(maximo),
+                color= MaterialTheme.colors.background) {
+                    Surface(modifier = Modifier.width(maximo/2),
                     color = MaterialTheme.colors.background) {
-                    ProductItem()
+                    Produtos()
+
+                    }
                 }
             }
         }
@@ -54,7 +53,9 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
+
 @Composable
+//ira carregar 03 imagens da API loresm space
 fun carregarimagens() : Painter{
                     val ImagensPainters = mutableListOf(rememberAsyncImagePainter(
                         "https://api.lorem.space/image/face?w=400&amp;amp;amp;amp;h=400"),
@@ -120,4 +121,12 @@ fun ProductItem() {
 }
 
 
-
+@Composable
+fun Produtos() {
+    Row {
+        ProductItem()
+        ProductItem()
+        ProductItem()
+        ProductItem()
+    }
+}
